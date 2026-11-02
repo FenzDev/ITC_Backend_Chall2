@@ -1,0 +1,89 @@
+
+@baseUrl = http://localhost:3000
+
+### 1. GET / - Welcome
+GET {{baseUrl}}/
+Accept: application/json
+
+
+### 2. POST /username - Generate username suggestions
+POST {{baseUrl}}/username
+Content-Type: application/json
+
+{
+  "name": "Akram"
+}
+
+
+### 3. POST /password - Generate password (all character types)
+POST {{baseUrl}}/password
+Content-Type: application/json
+
+{
+  "length": 16,
+  "include_uppercase": true,
+  "include_lowercase": true,
+  "include_numbers": true,
+  "include_symbols": true
+}
+
+
+### 4. POST /password - Numbers and lowercase only
+POST {{baseUrl}}/password
+Content-Type: application/json
+
+{
+  "length": 12,
+  "include_uppercase": false,
+  "include_lowercase": true,
+  "include_numbers": true,
+  "include_symbols": false
+}
+
+
+### 5. POST /password - Symbols and uppercase only
+POST {{baseUrl}}/password
+Content-Type: application/json
+
+{
+  "length": 20,
+  "include_uppercase": true,
+  "include_lowercase": false,
+  "include_numbers": false,
+  "include_symbols": true
+}
+
+
+### 6. POST /password - Invalid length
+POST {{baseUrl}}/password
+Content-Type: application/json
+
+{
+  "length": 0,
+  "include_uppercase": true,
+  "include_lowercase": true,
+  "include_numbers": true,
+  "include_symbols": true
+}
+
+
+### 7. POST /password - No character types
+POST {{baseUrl}}/password
+Content-Type: application/json
+
+{
+  "length": 16,
+  "include_uppercase": false,
+  "include_lowercase": false,
+  "include_numbers": false,
+  "include_symbols": false
+}
+
+
+### 8. POST /username - Different name
+POST {{baseUrl}}/username
+Content-Type: application/json
+
+{
+  "name": "Mohamed"
+}
